@@ -7,10 +7,10 @@ node default {
 		source => 'puppet:///files/motd',
 	}
 
-  host { "${name}.lab.novell.com" :
+  host { "${hostname}.lab.novell.com" :
   	ensure => present,
     ip => "$ipaddress",
-    host_aliases => "$name",
+    host_aliases => "$hostname",
     }
 
  service { "puppet":

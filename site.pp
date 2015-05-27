@@ -7,13 +7,14 @@ node default {
 		source => 'puppet:///files/motd',
 	}
 
-  host { "$name" :
+  host { "{$name}.lab.novell.com" :
   	ensure => present,
     ip => "$ipaddress",
-    alias  => $alias ? {
-            "$hostname" => undef,
-            default     => $alias
-		},
-	}
+    host_aliases => "$name",
+    }
 
+ service { "puppet":
+    ensure  => "running",
+    enable  => "true",
+	}
 }

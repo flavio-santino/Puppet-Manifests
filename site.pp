@@ -9,7 +9,7 @@ node default {
 
   host { "$name" :
   	ensure => present,
-    ip => '$ipaddress',
+    ip => "$ipaddress",
     alias  => $alias ? {
             "$hostname" => undef,
             default     => $alias
